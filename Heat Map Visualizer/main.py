@@ -56,11 +56,11 @@ def multiframeHmap(file, destination, rowsPerFrame):
     
     framesDict = {}
     
-    for frame in range (MAXFRAMES - 1):
-        tempFrameData = []
+    for frame in range(0, MAXFRAMES, 1):
+        print(frame)
         for row in range(0, MAXROWS, rowsPerFrame):
-            for i in range(row, row + rowsPerFrame, 1):
-                print(i)
+            tempFrameData = []
+            for i in range(row, (row + rowsPerFrame), 1):
                 tempFrameData.append(df.iloc[i])
             frameDf = pd.concat(tempFrameData, axis=0, ignore_index=True)
             framesDict[frame] = frameDf
